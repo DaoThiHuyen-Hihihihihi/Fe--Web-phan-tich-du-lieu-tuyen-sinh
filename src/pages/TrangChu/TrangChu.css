@@ -1,0 +1,20 @@
+.trang-chu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+}
+
+.noi-dung {
+  max-width: 500px;
+}
+
+.tieu-de-phu {
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.hinh-anh img {
+  max-width: 350px;
+  border-radius: 21px;
+}

@@ -1,0 +1,34 @@
+.search-bar,
+.filters {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.search-bar select,
+.search-bar input,
+.filters select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.search-bar button {
+  padding: 8px 16px;
+  background-color: #222;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.results {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.result-item {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}

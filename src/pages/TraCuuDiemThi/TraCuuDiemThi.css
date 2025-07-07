@@ -1,0 +1,12 @@
+.tra-cuu {
+  text-align: center;
+  padding: 50px;
+  background: linear-gradient(to bottom, #bfdbfe, white);
+}
+
+.form-tra-cuu {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
