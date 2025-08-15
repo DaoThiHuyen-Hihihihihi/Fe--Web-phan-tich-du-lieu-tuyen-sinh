@@ -1,0 +1,21 @@
+.bang-diem-wrap {
+  overflow: auto;
+}
+.bang-diem {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 420px;
+}
+.bang-diem th,
+.bang-diem td {
+  border: 1px solid #e5e7eb;
+  padding: 10px 12px;
+  text-align: center;
+}
+.bang-diem thead th {
+  background: #cfe9ff;
+  font-weight: 700;
+}
+.bang-diem tbody tr:hover {
+  background: #f6f8fa;
+}

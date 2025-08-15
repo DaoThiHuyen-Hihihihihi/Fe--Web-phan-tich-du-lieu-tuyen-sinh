@@ -1,39 +1,108 @@
-import React, { useState } from "react";
-import LayoutTraCuuDiemChuan from "../../layout/Layout_TraCuuDiemChuan";
-import SearchBarCaoDangDaiHoc from "../../components/SearchBar_CaoDang_DaiHoc/SearchBar_CaoDang_DaiHoc";
-import Locnamtinh from "../../components/Loc_nam_tinh/Loc_nam_tinh";
-import KQTraCuuDiemchuan from "../../components/KQTraCuuDiemChuan/KQTraCuuDiemChuan";
+import React, { useState, useMemo } from "react";
+import BoCucChinh from "../../layout/BoCucChinh";
+import ChonThongKe from "../../components/ChonThongKe";
+import Dropdown from "../../components/Dropdown";
+import BangDiem from "../../components/BangDiem"; // ✅ thêm vào đây
+import "../../styles/PhoDiemThi.css";
 
-export default function TraCuuDiemChuan() {
-  const [heDaoTao, setHeDaoTao] = useState("Hệ đại học");
-  const [keyword, setKeyword] = useState("");
-  const [tinhThanh, setTinhThanh] = useState("");
-  const [nam, setNam] = useState("");
-  const [results, setResults] = useState([]);
-  const [loading, setLoading] = useState(false);
+const PhoDiemThi = () => {
+  const [tab, setTab] = useState("khoi-thi");
+  const [khoi, setKhoi] = useState("Tất cả");
+  const [mon, setMon] = useState("Toán");
+  const [tinh, setTinh] = useState("Toàn quốc");
+  const [nam, setNam] = useState("2024");
 
-  const handleSearch = () => {
-    console.log("Hàm tìm kiếm được gọi!");
+  const khoiOptions = ["Tất cả", "A", "A1", "B", "C", "D"];
+  const monOptions = [
+    "Toán",
+    "Ngữ văn",
+    "Tiếng Anh",
+    "Lý",
+    "Hóa",
+    "Sinh",
+    "Sử",
+    "Địa",
+    "GDCD",
+  ];
+  const tinhOptions = ["Toàn quốc", "Hà Nội", "TP HCM", "Đà Nẵng", "Cần Thơ"];
+  const namOptions = ["2024", "2023", "2022"];
 
-    setResults([]);
-  };
+  // Dữ liệu mẫu
+  const duLieuGoc = useMemo(() => {
+    const data = {};
+    tinhOptions.forEach((t) => {
+      data[t] = {};
+      namOptions.forEach((n) => {
+        data[t][n] = Array.from({ length: 20 }).map((_, i) => ({
+          diem: (i * 0.5).toFixed(1),
+          soLuong: Math.floor(Math.random() * 100 + 10),
+        }));
+      });
+    });
+    return data;
+  }, []);
 
   return (
-    <LayoutTraCuuDiemChuan>
-      <SearchBarCaoDangDaiHoc
-        heDaoTao={heDaoTao}
-        setHeDaoTao={setHeDaoTao}
-        keyword={keyword}
-        setKeyword={setKeyword}
-        onSearch={handleSearch}
-      />
-      <Locnamtinh
-        tinhThanh={tinhThanh}
-        setTinhThanh={setTinhThanh}
-        nam={nam}
-        setNam={setNam}
-      />
-      <KQTraCuuDiemchuan loading={loading} results={results} />
-    </LayoutTraCuuDiemChuan>
+    <BoCucChinh>
+      <section className="hero">
+        <h1>Phổ điểm thi tốt nghiệp THPT</h1>
+      </section>
+
+      <ChonThongKe activeTab={tab} setActiveTab={setTab} />
+
+      <div className="hop-noi-dung">
+        {tab === "khoi-thi" && (
+          <>
+            <div className="chon-dieu-kien">
+              <span>Khối thi</span>
+              <Dropdown
+                options={khoiOptions}
+                value={khoi}
+                onChange={(e) => setKhoi(e.target.value)}
+              />
+            </div>
+
+            <BangDiem data={duLieuGoc["Toàn quốc"]["2024"]} />
+          </>
+        )}
+
+        {tab === "mon-thi" && (
+          <div className="chon-dieu-kien">
+            <span>Môn thi</span>
+            <Dropdown
+              options={monOptions}
+              value={mon}
+              onChange={(e) => setMon(e.target.value)}
+            />
+          </div>
+        )}
+
+        {tab === "tinh-thanh" && (
+          <>
+            <div className="chon-dieu-kien">
+              <span>Tỉnh thành</span>
+              <Dropdown
+                options={tinhOptions}
+                value={tinh}
+                onChange={(e) => setTinh(e.target.value)}
+              />
+            </div>
+
+            <div className="chon-dieu-kien">
+              <span>Năm</span>
+              <Dropdown
+                options={namOptions}
+                value={nam}
+                onChange={(e) => setNam(e.target.value)}
+              />
+            </div>
+
+            <BangDiem data={duLieuGoc[tinh][nam]} />
+          </>
+        )}
+      </div>
+    </BoCucChinh>
   );
-}
+};
+
+export default PhoDiemThi;
