@@ -1,12 +1,12 @@
 import React from "react";
-import BocucChinh from "../../layout/BoCucChinh";
 
-const PhoDiemThi = () => {
+export default function Layout_PhoDiemThi({ children }) {
   return (
-    <BoCucChinh>
-      <h1>Đây là trang Phổ điểm thi đại học</h1>
-    </BoCucChinh>
+    <div className="Layout_PhoDiemThi">
+      <header>
+        <h1>Phổ điểm thi đại học</h1>
+      </header>
+      <main>{children}</main>
+    </div>
   );
-};
-
-export default PhoDiemThi;
+}

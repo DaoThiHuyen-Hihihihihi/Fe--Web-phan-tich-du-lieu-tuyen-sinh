@@ -8,7 +8,6 @@ const TraCuuDiemThi = () => {
   const [soBaoDanh, setSoBaoDanh] = useState("");
 
   const handleSearch = () => {
-    // gọi API để tìm kiếm
     alert(`Tìm kiếm điểm của số báo danh: ${soBaoDanh}`);
   };
 

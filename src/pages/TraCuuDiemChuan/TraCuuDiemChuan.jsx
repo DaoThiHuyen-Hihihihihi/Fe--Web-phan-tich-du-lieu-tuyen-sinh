@@ -1,9 +1,8 @@
 import React, { useState, useMemo } from "react";
 import BoCucChinh from "../../layout/BoCucChinh";
-import ChonThongKe from "../../components/ChonThongKe";
-import Dropdown from "../../components/Dropdown";
-import BangDiem from "../../components/BangDiem"; // ✅ thêm vào đây
-import "../../styles/PhoDiemThi.css";
+import ChonThongKe from "../../components/ChonThongKe/ChonThongKe";
+import Dropdown from "../../components/Dropdown/Dropdown";
+import BangDiem from "../../components/BangDiem/BangDiem";
 
 const PhoDiemThi = () => {
   const [tab, setTab] = useState("khoi-thi");

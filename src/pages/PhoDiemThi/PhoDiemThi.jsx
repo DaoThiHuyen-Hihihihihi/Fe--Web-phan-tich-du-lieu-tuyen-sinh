@@ -1,8 +1,7 @@
-// src/pages/PhoDiemThi/PhoDiemThi.jsx
 import React, { useState } from "react";
 import BocucChinh from "../../layout/Layout_PhoDiemThi";
-import ChonThongKe from "./ChonThongKe";
-import NoiDungPhoDiem from "./NoiDungPhoDiem";
+import ChonThongKe from "../../components/ChonThongKe/ChonThongKe";
+
 import "./PhoDiemThi.css";
 
 const PhoDiemThi = () => {
@@ -12,29 +11,9 @@ const PhoDiemThi = () => {
 
   // Dữ liệu giả định
   const dataPhoDiem = {
-    "mon-thi": {
-      Toán: {
-        tongThiSinh: "1137417",
-        diemTrungBinh: "4.80",
-        diemDuoi5: "637628",
-        diemPhanBo: [
-          /* dữ liệu bảng */
-        ],
-      },
-    },
-    "khoi-thi": {
-      A: {
-        tongThiSinh: "1137417",
-        diemTrungBinh: "4.80",
-        diemDuoi5: "637628",
-        diemPhanBo: [
-          /* dữ liệu bảng */
-        ],
-      },
-    },
-    "tinh-thanh": {
-      /* dữ liệu cho tỉnh thành */
-    },
+    "mon-thi": {},
+    "khoi-thi": {},
+    "tinh-thanh": {},
   };
 
   const duLieuHienTai =
