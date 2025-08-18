@@ -14,11 +14,11 @@ const ThanhDieuHuong = () => {
           <Link to="/tra-cuu">Tra cứu điểm thi đại học</Link>
         </li>
         <li>
-          <Link to="/pho-diem">Phổ điểm thi đại học</Link>
+          <Link to="/diem-chuan">Điểm chuẩn CĐ - ĐH</Link>
         </li>
 
         <li>
-          <Link to="/diem-chuan">Điểm chuẩn CĐ - ĐH</Link>
+          <Link to="/pho-diem"> Phổ điểm thi đại học</Link>
         </li>
       </ul>
     </nav>
