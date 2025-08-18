@@ -1,60 +1,64 @@
-.hero {
-  text-align: center;
-  padding: 2rem 1rem;
-  background: linear-gradient(135deg, #4facfe, #00f2fe);
-  color: white;
-  border-radius: 8px;
-  margin-bottom: 2rem;
+/* TraCuuDiemChuan.css */
+.tra-cuu-diem-chuan-container {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  margin: 24px auto;
+  padding: 32px 24px 24px 24px;
+  max-width: 900px;
+  min-height: 500px;
+  border: 3px solid #a48fff;
 }
 
-.hero h1 {
+.tra-cuu-header {
+  text-align: center;
+  margin-bottom: 18px;
+}
+.tra-cuu-header h2 {
   font-size: 2rem;
   font-weight: bold;
+  color: #222;
+  margin: 0;
+  text-shadow: 1px 2px 8px #bdbfff44;
 }
 
-.tabs {
+.tra-cuu-controls {
   display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.tab-button {
-  padding: 0.5rem 1.2rem;
-  border: 1px solid #4facfe;
-  border-radius: 6px;
-  background: white;
-  color: #4facfe;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.tab-button:hover {
-  background: #4facfe;
-  color: white;
-}
-
-.tab-button.active {
-  background: #4facfe;
-  color: white;
-  font-weight: bold;
-}
-
-.hop-noi-dung {
-  background: #fff;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.chon-dieu-kien {
-  margin-bottom: 1rem;
-  display: flex;
+  gap: 12px;
   align-items: center;
-  gap: 1rem;
+  justify-content: flex-start;
+  margin-bottom: 16px;
 }
 
-.chon-dieu-kien span {
+.tra-cuu-filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.tra-cuu-table-wrapper {
+  overflow-x: auto;
+  background: #f8f8ff;
+  border-radius: 8px;
+  padding: 8px 0;
+}
+
+.tra-cuu-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: transparent;
+}
+.tra-cuu-table th, .tra-cuu-table td {
+  border: 1px solid #d1c4e9;
+  padding: 8px 10px;
+  text-align: center;
+  font-size: 1rem;
+}
+.tra-cuu-table th {
+  background: #ede7f6;
+  color: #4b2e83;
   font-weight: 600;
-  min-width: 100px;
+}
+.tra-cuu-table tr:nth-child(even) td {
+  background: #f3f0fa;
 }
