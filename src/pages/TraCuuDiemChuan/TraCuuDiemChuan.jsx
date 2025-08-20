@@ -20,10 +20,7 @@ const TraCuuDiemChuan = () => {
   const [truong, setTruong] = useState("");
   const [data, setData] = useState(mockData);
 
-  const handleSearch = () => {
-    // TODO: fetch/filter data theo các trường đã chọn
-    // setData(...)
-  };
+  const handleSearch = () => {};
 
   return (
     <Layout_TraCuuDiemChuan>
