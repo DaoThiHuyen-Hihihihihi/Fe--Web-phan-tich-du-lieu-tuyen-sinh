@@ -26,7 +26,7 @@ const TraCuuDiemChuan = () => {
     <Layout_TraCuuDiemChuan>
       <div className="tra-cuu-diem-chuan-container">
         <div className="tra-cuu-header">
-          <h2>Tra cứu điểm chuẩn CĐ - ĐH</h2>
+          <h1>Tra cứu điểm chuẩn CĐ - ĐH</h1>
         </div>
         <div className="tra-cuu-controls">
           <Dropdown options={heOptions} value={he} onChange={setHe} />

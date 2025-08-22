@@ -4,13 +4,13 @@
   min-height: 100vh;
 }
 .goi-y-container {
-  background: #fcf8fa;
-  border-radius: 16px;
+  background: linear-gradient(to bottom, #bfdbfe, white);
+  /*border-radius: 16px;*/
   margin: 36px auto;
   padding: 36px 32px 32px 32px;
-  max-width: 900px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  border: 2px solid #e0e0e0;
+  /*max-width: 900px;*/
+  /*box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);*/
+  /*border: 2px solid #e0e0e0;*/
 }
 .goi-y-title {
   text-align: center;
@@ -53,7 +53,8 @@
   margin: 0 8px;
   cursor: pointer;
 }
-.switch-on, .switch-off {
+.switch-on,
+.switch-off {
   display: inline-block;
   width: 32px;
   height: 24px;

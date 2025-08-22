@@ -1,20 +1,14 @@
-/* TraCuuDiemChuan.css */
 .tra-cuu-diem-chuan-container {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  margin: 24px auto;
-  padding: 32px 24px 24px 24px;
-  max-width: 900px;
-  min-height: 500px;
-  border: 3px solid #a48fff;
+  background: linear-gradient(to bottom, #bfdbfe, white);
+  margin: 36px auto;
+  padding: 36px 32px 32px 32px;
 }
 
 .tra-cuu-header {
   text-align: center;
   margin-bottom: 18px;
 }
-.tra-cuu-header h2 {
+.tra-cuu-header h1 {
   font-size: 2rem;
   font-weight: bold;
   color: #222;
@@ -48,7 +42,8 @@
   border-collapse: collapse;
   background: transparent;
 }
-.tra-cuu-table th, .tra-cuu-table td {
+.tra-cuu-table th,
+.tra-cuu-table td {
   border: 1px solid #d1c4e9;
   padding: 8px 10px;
   text-align: center;

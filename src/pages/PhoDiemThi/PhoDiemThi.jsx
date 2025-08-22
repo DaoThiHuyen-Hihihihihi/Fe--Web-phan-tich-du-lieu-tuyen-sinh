@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import BoCucChinh from "../../layout/BoCucChinh";
+
 import ChonThongKe from "../../components/ChonThongKe/ChonThongKe";
 import Dropdown from "../../components/Dropdown/Dropdown";
 import BangDiem from "../../components/BangDiem/BangDiem";
@@ -41,10 +41,8 @@ const PhoDiemThi = () => {
   }, []);
 
   return (
-    <BoCucChinh>
-      <section className="hero">
-        <h1>Phổ điểm thi tốt nghiệp THPT</h1>
-      </section>
+    <div className="pho-diem-thi">
+      <h1>Phổ điểm thi tốt nghiệp THPT</h1>
 
       <ChonThongKe activeTab={tab} setActiveTab={setTab} />
 
@@ -99,7 +97,7 @@ const PhoDiemThi = () => {
           </>
         )}
       </div>
-    </BoCucChinh>
+    </div>
   );
 };
 

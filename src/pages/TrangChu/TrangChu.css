@@ -1,4 +1,5 @@
 .trang-chu {
+  background: linear-gradient(to bottom, #bfdbfe, white);
   display: flex;
   justify-content: space-between;
   align-items: center;
