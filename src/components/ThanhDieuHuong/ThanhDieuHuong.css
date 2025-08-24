@@ -2,23 +2,48 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: white;
-  padding: 10px 40px;
-  border-bottom: 2px solid #a855f7;
+  background: #f7f7f7;
+  padding: 18px 40px 10px 40px;
+  border-bottom: 3px solid #eee;
 }
 
-.thanh-dieu-huong ul {
+.thanh-dieu-huong .logo {
+  font-family: "Kaushan Script", cursive;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: #111;
+  margin-right: 40px;
+}
+
+.thanh-dieu-huong .nav-list {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 60px;
+  margin: 0;
+  padding: 0;
 }
 
-.thanh-dieu-huong a {
+.thanh-dieu-huong .nav-list li {
+  display: flex;
+  align-items: center;
+}
+
+.thanh-dieu-huong .nav-list a {
   text-decoration: none;
-  color: black;
-  font-weight: 500;
+  color: #111;
+
+  font-size: 20px;
+  padding-bottom: 2px;
+  transition: color 0.2s;
 }
 
-.thanh-dieu-huong a:hover {
+.thanh-dieu-huong .nav-list a.active {
+  font-weight: bold;
+  cursor: default;
+}
+
+.thanh-dieu-huong .nav-list a:not(.active):hover {
+  color: #a32e2e;
   text-decoration: underline;
 }

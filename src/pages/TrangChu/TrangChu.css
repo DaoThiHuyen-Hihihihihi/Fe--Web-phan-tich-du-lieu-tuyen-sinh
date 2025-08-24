@@ -1,21 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
 .trang-chu {
-  background: linear-gradient(to bottom, #bfdbfe, white);
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 40px;
+  padding: 110px 120px;
+
+  background: #fff;
 }
 
-.noi-dung {
-  max-width: 500px;
+.trang-chu__left {
+  max-width: 508px;
+  z-index: 1;
 }
 
-.tieu-de-phu {
-  font-weight: bold;
-  letter-spacing: 2px;
+.trang-chu__subtitle {
+  font-family: "K2D", sans-serif;
+  ffont-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  margin: 0 0 22px 0;
 }
 
-.hinh-anh img {
-  max-width: 350px;
-  border-radius: 21px;
+.trang-chu__title {
+  font-family: "K2D", sans-serif;
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 1.3;
+  margin: 0 0 43px 0;
+}
+
+.trang-chu__desc {
+  font-family: "k2d", sans-serif;
+  font-size: 20px;
+  line-height: 1.3;
+  margin: 0 0 43px 0;
+}
+
+.trang-chu__right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.trang-chu__img-bg {
+  position: absolute;
+  width: 560px;
+  height: 700px;
+  right: 120px;
+  top: 100px;
+  background: linear-gradient(to bottom, #6092fe, #ffffff);
+  border-radius: 280px 0px 140px 0px;
+}
+
+.trang-chu__img {
+  position: absolute;
+  width: 631px;
+  height: 764px;
+  left: 30px;
+  top: auto;
+  object-fit: cover;
+  z-index: 1;
+  max-height: 100vh;
+  clip-path: inset(0 0 0 0);
+}
+
+@media (max-width: 900px) {
+  .trang-chu {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 10px;
+  }
+  .trang-chu__right {
+    justify-content: center;
+    width: 100%;
+    margin-top: 30px;
+  }
 }
