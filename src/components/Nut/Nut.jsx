@@ -1,9 +1,9 @@
 import React from "react";
 import "./Nut.css";
 
-const Nut = ({ label, onClick, type = "button" }) => {
+const Nut = ({ label, onClick, type = "button", ...props }) => {
   return (
-    <button className="nut" type={type} onClick={onClick}>
+    <button className="nut" type={type} onClick={onClick} {...props}>
       {label}
     </button>
   );

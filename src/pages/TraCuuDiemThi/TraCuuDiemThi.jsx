@@ -20,6 +20,7 @@ const TraCuuDiemThi = () => {
             placeholder="Nhập vào số báo danh"
             value={soBaoDanh}
             onChange={(e) => setSoBaoDanh(e.target.value)}
+            style={{ width: "500px" }}
           />
 
           <Nut label="Tìm kiếm" onClick={handleSearch} />
