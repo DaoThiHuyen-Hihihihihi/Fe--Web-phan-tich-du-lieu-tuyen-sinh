@@ -7,6 +7,7 @@ const navItems = [
   { label: "Tra cứu điểm thi đại học", to: "/tra-cuu" },
   { label: "Phổ điểm thi đại học", to: "/pho-diem" },
   { label: "Điểm chuẩn CĐ - ĐH", to: "/diem-chuan" },
+  { label: "Gợi ý tuyển sinh", to: "/goi-y-nguyen-vong" },
 ];
 
 const ThanhDieuHuong = () => {
@@ -16,7 +17,7 @@ const ThanhDieuHuong = () => {
       <div className="logo">
         <span
           style={{
-            fontFamily: "Kaushan Script",
+            fontFamily: "Kaushan Script, sans-serif",
             fontWeight: 500,
             fontStyle: "italic",
             fontSize: 32,
