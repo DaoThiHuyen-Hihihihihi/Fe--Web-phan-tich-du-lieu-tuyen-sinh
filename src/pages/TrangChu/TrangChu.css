@@ -50,21 +50,26 @@
 
 .trang-chu__img-bg {
   position: absolute;
-  width: 560px;
-  height: 700px;
+  width: 590px;
+  height: 680px;
   right: 120px;
   top: 100px;
   background: linear-gradient(to bottom, #6092fe, #ffffff);
   border-radius: 280px 0px 140px 0px;
+  overflow: hidden; /* Thêm dòng này để ảnh không bị tràn */
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .trang-chu__img {
-  position: absolute;
+  position: relative;
   width: 631px;
   height: 764px;
-  left: 30px;
+  left: 20px;
   top: auto;
   object-fit: cover;
+  display: block;
   z-index: 1;
   max-height: 100vh;
   clip-path: inset(0 0 0 0);

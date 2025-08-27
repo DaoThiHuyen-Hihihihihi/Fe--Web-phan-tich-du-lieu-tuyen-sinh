@@ -3,7 +3,10 @@ import { useNavigate } from "react-router-dom";
 import BoCucChinh from "../../layout/BoCucChinh";
 import "./TrangChu.css";
 import Nut from "../../components/Nut/Nut";
+import AnhTuDongDoi from "../../components/AnhTuDongDoi/AnhTuDongDoi";
 import sinhvien from "../../assets/sinhvien.png";
+import sinhvien2 from "../../assets/sinhvien2.png";
+import sinhvien3 from "../../assets/sinhvien3.png";
 
 const TrangChu = () => {
   const navigate = useNavigate();
@@ -29,7 +32,13 @@ const TrangChu = () => {
       </div>
       <div className="trang-chu__right">
         <div className="trang-chu__img-bg">
-          <img src={sinhvien} alt="Sinh viên" className="trang-chu__img" />
+          <AnhTuDongDoi
+            images={[sinhvien3, sinhvien2, sinhvien]}
+            interval={3000}
+            alt="Sinh viên"
+            className="trang-chu__img"
+            style={{ objectFit: "cover", maxHeight: "100vh" }}
+          />
         </div>
       </div>
     </div>

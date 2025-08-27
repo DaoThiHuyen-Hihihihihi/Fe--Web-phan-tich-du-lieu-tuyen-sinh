@@ -1,4 +1,5 @@
 import React from "react";
+import "./ChonThongKe.css";
 
 const ChonThongKe = ({ activeTab, setActiveTab }) => {
   return (

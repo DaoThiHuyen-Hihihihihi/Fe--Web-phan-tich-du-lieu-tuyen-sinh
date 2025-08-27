@@ -1,8 +1,9 @@
 import React from "react";
+import "./Dropdown.css";
 
-const Dropdown = ({ options, value, onChange }) => {
+const Dropdown = ({ options, value, onChange, ...props }) => {
   return (
-    <select value={value} onChange={onChange}>
+    <select value={value} onChange={onChange} {...props} className="dropdown">
       {options.map((option) => (
         <option key={option} value={option}>
           {option}
