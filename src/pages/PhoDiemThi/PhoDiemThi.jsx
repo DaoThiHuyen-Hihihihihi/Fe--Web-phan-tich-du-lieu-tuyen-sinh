@@ -94,21 +94,29 @@ const PhoDiemThi = () => {
         <div className="hop-noi-dung" style={{ marginTop: 24 }}>
           {tab === "khoi-thi" && (
             <>
-              <div
-                className="chon-dieu-kien"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 12,
-                  marginBottom: 16,
-                }}
-              >
-                <span style={{ fontWeight: 500 }}>Khối thi</span>
-                <Dropdown
-                  options={khoiOptions}
-                  value={khoi}
-                  onChange={(e) => setKhoi(e.target.value)}
-                />
+              <div style={{ display: "flex", gap: 24, marginBottom: 16 }}>
+                <div
+                  className="chon-dieu-kien"
+                  style={{ display: "flex", alignItems: "center", gap: 12 }}
+                >
+                  <span style={{ fontWeight: 500 }}>Khối thi</span>
+                  <Dropdown
+                    options={khoiOptions}
+                    value={khoi}
+                    onChange={(e) => setKhoi(e.target.value)}
+                  />
+                </div>
+                <div
+                  className="chon-dieu-kien"
+                  style={{ display: "flex", alignItems: "center", gap: 12 }}
+                >
+                  <span style={{ fontWeight: 500 }}>Năm</span>
+                  <Dropdown
+                    options={namOptions}
+                    value={nam}
+                    onChange={(e) => setNam(e.target.value)}
+                  />
+                </div>
               </div>
               <div
                 style={{
@@ -175,17 +183,93 @@ const PhoDiemThi = () => {
           )}
 
           {tab === "mon-thi" && (
-            <div
-              className="chon-dieu-kien"
-              style={{ display: "flex", alignItems: "center", gap: 12 }}
-            >
-              <span style={{ fontWeight: 500 }}>Môn thi</span>
-              <Dropdown
-                options={monOptions}
-                value={mon}
-                onChange={(e) => setMon(e.target.value)}
-              />
-            </div>
+            <>
+              <div style={{ display: "flex", gap: 24, marginBottom: 16 }}>
+                <div
+                  className="chon-dieu-kien"
+                  style={{ display: "flex", alignItems: "center", gap: 12 }}
+                >
+                  <span style={{ fontWeight: 500 }}>Môn thi</span>
+                  <Dropdown
+                    options={monOptions}
+                    value={mon}
+                    onChange={(e) => setMon(e.target.value)}
+                  />
+                </div>
+                <div
+                  className="chon-dieu-kien"
+                  style={{ display: "flex", alignItems: "center", gap: 12 }}
+                >
+                  <span style={{ fontWeight: 500 }}>Năm</span>
+                  <Dropdown
+                    options={namOptions}
+                    value={nam}
+                    onChange={(e) => setNam(e.target.value)}
+                  />
+                </div>
+              </div>
+              <div
+                style={{
+                  borderBottom: "3px solid #2196f3",
+                  marginBottom: 16,
+                  fontWeight: 600,
+                  fontSize: 18,
+                  color: "#2196f3",
+                  paddingBottom: 4,
+                }}
+              >
+                PHỔ ĐIỂM {tinh.toUpperCase()} - {nam}
+              </div>
+              <div style={{ display: "flex", gap: 32, marginBottom: 24 }}>
+                <div
+                  style={{
+                    background: "#f5f6fa",
+                    borderRadius: 12,
+                    padding: 16,
+                    minWidth: 160,
+                    textAlign: "center",
+                  }}
+                >
+                  <div style={{ color: "#888", fontWeight: 500, fontSize: 15 }}>
+                    Tổng số thí sinh
+                  </div>
+                  <div
+                    style={{
+                      color: "#e53935",
+                      fontWeight: 700,
+                      fontSize: 28,
+                      marginTop: 4,
+                    }}
+                  >
+                    {tongSoThiSinh.toLocaleString()}
+                  </div>
+                </div>
+                <div
+                  style={{
+                    background: "#f5f6fa",
+                    borderRadius: 12,
+                    padding: 16,
+                    minWidth: 160,
+                    textAlign: "center",
+                  }}
+                >
+                  <div style={{ color: "#888", fontWeight: 500, fontSize: 15 }}>
+                    Điểm trung bình
+                  </div>
+                  <div
+                    style={{
+                      color: "#e53935",
+                      fontWeight: 700,
+                      fontSize: 28,
+                      marginTop: 4,
+                    }}
+                  >
+                    {diemTrungBinh}
+                  </div>
+                </div>
+              </div>
+              <BangDiem data={dataBang} />
+            </>
           )}
 
           {tab === "tinh-thanh" && (
