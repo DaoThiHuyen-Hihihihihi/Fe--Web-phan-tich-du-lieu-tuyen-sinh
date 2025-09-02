@@ -1,20 +1,43 @@
 .bang-diem-wrap {
-  overflow: auto;
+  max-height: 480px; /* Tăng chiều cao tối đa */
+  overflow-y: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px; /* Bo góc lớn hơn */
 }
+
+/* Tùy chỉnh thanh cuộn */
+.bang-diem-wrap::-webkit-scrollbar {
+  width: 6px;
+}
+.bang-diem-wrap::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+.bang-diem-wrap::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 8px;
+}
+.bang-diem-wrap::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
 .bang-diem {
   width: 100%;
   border-collapse: collapse;
-  min-width: 420px;
 }
 .bang-diem th,
 .bang-diem td {
-  border: 1px solid #e5e7eb;
-  padding: 10px 12px;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px 12px; /* Tăng padding */
   text-align: center;
+  font-size: 15px; /* Cỡ chữ */
 }
 .bang-diem thead th {
-  background: #cfe9ff;
-  font-weight: 700;
+  background-color: #f0f2f5; /* Màu nền header */
+  font-weight: bold; /* Chữ đậm */
+  position: sticky;
+  top: 0;
+  color: #333;
 }
 .bang-diem tbody tr:hover {
   background: #f6f8fa;

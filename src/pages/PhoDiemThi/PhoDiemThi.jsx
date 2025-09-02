@@ -2,6 +2,7 @@ import React, { useState, useMemo } from "react";
 import ChonThongKe from "../../components/ChonThongKe/ChonThongKe";
 import Dropdown from "../../components/Dropdown/Dropdown";
 import BangDiem from "../../components/BangDiem/BangDiem";
+import BieuDoPhoDiem from "../../components/BieuDoPhoDiem/BieuDoPhoDiem";
 import "./PhoDiemThi.css";
 
 const khoiOptions = ["Tất cả", "A", "A1", "B", "C", "D"];
@@ -26,16 +27,28 @@ const PhoDiemThi = () => {
   const [tinh, setTinh] = useState("Toàn quốc");
   const [nam, setNam] = useState("2024");
 
-  // Tạo dữ liệu giả lập
+  // Tạo dữ liệu giả lập với dữ liệu thực tế hơn
   const duLieuGoc = useMemo(() => {
     const data = {};
     tinhOptions.forEach((t) => {
       data[t] = {};
       namOptions.forEach((n) => {
-        data[t][n] = Array.from({ length: 21 }).map((_, i) => ({
-          diem: (i * 0.2).toFixed(1),
-          soLuong: 8,
-        }));
+        data[t][n] = Array.from({ length: 51 }).map((_, i) => {
+          const diem = (i * 0.2).toFixed(1);
+          // Tạo phân phối giống thực tế - cao ở giữa, thấp ở 2 đầu
+          let soLuong;
+          if (i <= 5) soLuong = Math.floor(Math.random() * 1000) + 100; // 0-1.0
+          else if (i <= 25)
+            soLuong = Math.floor(Math.random() * 60000) + 10000; // 1.2-5.0
+          else if (i <= 35)
+            soLuong = Math.floor(Math.random() * 40000) + 20000; // 5.2-7.0
+          else soLuong = Math.floor(Math.random() * 20000) + 5000; // 7.2-10.0
+
+          return {
+            diem: diem,
+            soLuong: soLuong,
+          };
+        });
       });
     });
     return data;
@@ -44,6 +57,8 @@ const PhoDiemThi = () => {
   // Lấy dữ liệu theo tab
   let dataBang = [];
   if (tab === "khoi-thi") {
+    dataBang = duLieuGoc["Toàn quốc"]["2024"];
+  } else if (tab === "mon-thi") {
     dataBang = duLieuGoc["Toàn quốc"]["2024"];
   } else if (tab === "tinh-thanh") {
     dataBang = duLieuGoc[tinh][nam];
@@ -60,6 +75,14 @@ const PhoDiemThi = () => {
           ) / tongSoThiSinh
         ).toFixed(2)
       : 0;
+
+  // Tính số thí sinh điểm < 1 và < 5
+  const diemDuoi1 = dataBang
+    .filter((item) => parseFloat(item.diem) < 1)
+    .reduce((sum, item) => sum + item.soLuong, 0);
+  const diemDuoi5 = dataBang
+    .filter((item) => parseFloat(item.diem) < 5)
+    .reduce((sum, item) => sum + item.soLuong, 0);
 
   return (
     <div
@@ -90,7 +113,6 @@ const PhoDiemThi = () => {
         }}
       >
         <ChonThongKe activeTab={tab} setActiveTab={setTab} />
-
         <div className="hop-noi-dung" style={{ marginTop: 24 }}>
           {tab === "khoi-thi" && (
             <>
@@ -184,61 +206,63 @@ const PhoDiemThi = () => {
 
           {tab === "mon-thi" && (
             <>
-              <div style={{ display: "flex", gap: 24, marginBottom: 16 }}>
-                <div
-                  className="chon-dieu-kien"
-                  style={{ display: "flex", alignItems: "center", gap: 12 }}
-                >
-                  <span style={{ fontWeight: 500 }}>Môn thi</span>
-                  <Dropdown
-                    options={monOptions}
-                    value={mon}
-                    onChange={(e) => setMon(e.target.value)}
-                  />
-                </div>
-                <div
-                  className="chon-dieu-kien"
-                  style={{ display: "flex", alignItems: "center", gap: 12 }}
-                >
-                  <span style={{ fontWeight: 500 }}>Năm</span>
-                  <Dropdown
-                    options={namOptions}
-                    value={nam}
-                    onChange={(e) => setNam(e.target.value)}
-                  />
-                </div>
-              </div>
+              {/* Tiêu đề */}
               <div
                 style={{
-                  borderBottom: "3px solid #2196f3",
-                  marginBottom: 16,
-                  fontWeight: 600,
-                  fontSize: 18,
-                  color: "#2196f3",
-                  paddingBottom: 4,
+                  borderBottom: "2px solid #0056b3",
+                  paddingBottom: 8,
+                  marginBottom: 24,
                 }}
               >
-                PHỔ ĐIỂM {tinh.toUpperCase()} - {nam}
-              </div>
-              <div style={{ display: "flex", gap: 32, marginBottom: 24 }}>
-                <div
+                <span
                   style={{
-                    background: "#f5f6fa",
-                    borderRadius: 12,
-                    padding: 16,
-                    minWidth: 160,
-                    textAlign: "center",
+                    backgroundColor: "#0056b3",
+                    color: "white",
+                    padding: "10px 20px",
+                    fontWeight: "bold",
+                    fontSize: 18,
+                    display: "inline-block",
+                    borderTopLeftRadius: 8,
+                    borderTopRightRadius: 8,
                   }}
                 >
-                  <div style={{ color: "#888", fontWeight: 500, fontSize: 15 }}>
+                  PHỔ ĐIỂM MÔN {mon.toUpperCase()}
+                </span>
+              </div>
+
+              {/* 4 thẻ thống kê */}
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(4, 1fr)",
+                  gap: 24,
+                  marginBottom: 32,
+                }}
+              >
+                <div
+                  style={{
+                    backgroundColor: "#f8f9fa",
+                    borderRadius: 12,
+                    padding: "16px",
+                    textAlign: "center",
+                    boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#343a40",
+                      fontWeight: "bold",
+                      fontSize: 16,
+                      marginBottom: 8,
+                    }}
+                  >
                     Tổng số thí sinh
                   </div>
                   <div
                     style={{
-                      color: "#e53935",
-                      fontWeight: 700,
-                      fontSize: 28,
-                      marginTop: 4,
+                      color: "#dc3545",
+                      fontWeight: "bold",
+                      fontSize: 32,
                     }}
                   >
                     {tongSoThiSinh.toLocaleString()}
@@ -246,29 +270,111 @@ const PhoDiemThi = () => {
                 </div>
                 <div
                   style={{
-                    background: "#f5f6fa",
+                    backgroundColor: "#f8f9fa",
                     borderRadius: 12,
-                    padding: 16,
-                    minWidth: 160,
+                    padding: "16px",
                     textAlign: "center",
+                    boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
                   }}
                 >
-                  <div style={{ color: "#888", fontWeight: 500, fontSize: 15 }}>
+                  <div
+                    style={{
+                      color: "#343a40",
+                      fontWeight: "bold",
+                      fontSize: 16,
+                      marginBottom: 8,
+                    }}
+                  >
                     Điểm trung bình
                   </div>
                   <div
                     style={{
-                      color: "#e53935",
-                      fontWeight: 700,
-                      fontSize: 28,
-                      marginTop: 4,
+                      color: "#dc3545",
+                      fontWeight: "bold",
+                      fontSize: 32,
                     }}
                   >
                     {diemTrungBinh}
                   </div>
                 </div>
+                <div
+                  style={{
+                    backgroundColor: "#f8f9fa",
+                    borderRadius: 12,
+                    padding: "16px",
+                    textAlign: "center",
+                    boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#343a40",
+                      fontWeight: "bold",
+                      fontSize: 16,
+                      marginBottom: 8,
+                    }}
+                  >
+                    Điểm {"<"} 1
+                  </div>
+                  <div
+                    style={{
+                      color: "#dc3545",
+                      fontWeight: "bold",
+                      fontSize: 32,
+                    }}
+                  >
+                    {diemDuoi1.toLocaleString()}
+                  </div>
+                </div>
+                <div
+                  style={{
+                    backgroundColor: "#f8f9fa",
+                    borderRadius: 12,
+                    padding: "16px",
+                    textAlign: "center",
+                    boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#343a40",
+                      fontWeight: "bold",
+                      fontSize: 16,
+                      marginBottom: 8,
+                    }}
+                  >
+                    Điểm {"<"} 5
+                  </div>
+                  <div
+                    style={{
+                      color: "#dc3545",
+                      fontWeight: "bold",
+                      fontSize: 32,
+                    }}
+                  >
+                    {diemDuoi5.toLocaleString()}
+                  </div>
+                </div>
               </div>
-              <BangDiem data={dataBang} />
+
+              {/* Layout biểu đồ và bảng */}
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "2fr 1fr",
+                  gap: 32,
+                }}
+              >
+                {/* Biểu đồ bên trái */}
+                <div>
+                  <BieuDoPhoDiem data={dataBang} />
+                </div>
+
+                {/* Bảng bên phải */}
+                <div>
+                  <BangDiem data={dataBang} />
+                </div>
+              </div>
             </>
           )}
 

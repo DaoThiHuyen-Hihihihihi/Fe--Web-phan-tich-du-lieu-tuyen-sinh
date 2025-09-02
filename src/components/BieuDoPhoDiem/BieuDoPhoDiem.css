@@ -1,0 +1,152 @@
+.bieu-do-pho-diem {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.bieu-do-container {
+  display: flex;
+  height: 400px;
+  margin-bottom: 20px;
+}
+
+.truc-y {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40px;
+  height: 100%;
+  padding-right: 10px;
+}
+
+.gia-tri-y {
+  font-size: 12px;
+  color: #666;
+  text-align: right;
+  line-height: 1;
+}
+
+.vung-bieu-do {
+  flex: 1;
+  position: relative;
+  border-left: 2px solid #ddd;
+  border-bottom: 2px solid #ddd;
+}
+
+.luoi-ngang {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.duong-luoi {
+  border-top: 1px dashed #e0e0e0;
+  width: 100%;
+}
+
+.cac-cot {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  gap: 1px;
+  padding: 0 5px;
+}
+
+.cot-wrapper {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.cot {
+  width: 90%;
+  max-width: 18px;
+  background-color: #4285f4;
+  border-radius: 2px 2px 0 0;
+  min-height: 1px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.cot:hover {
+  opacity: 0.8;
+}
+
+.truc-x {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 2.5%;
+}
+
+.nhan-x {
+  font-size: 10px;
+  color: #666;
+  text-align: center;
+  flex: 1;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.nhan-x:nth-child(odd) {
+  position: relative;
+  top: 15px;
+}
+
+.chu-thich {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.chu-thich-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.mau-chu-thich {
+  width: 14px;
+  height: 14px;
+  background: #4285f4;
+  border-radius: 50%;
+}
+
+.nut-nhung {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nut-nhung:hover {
+  background: #f1f3f4;
+  border-color: #c4c7c5;
+}
+
+.nut-nhung span {
+  font-size: 12px;
+}
