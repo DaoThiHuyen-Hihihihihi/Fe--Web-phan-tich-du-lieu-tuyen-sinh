@@ -2,14 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .trang-chu {
   display: flex;
   align-items: center;
   padding: 110px 120px;
-
   background: #fff;
 }
 

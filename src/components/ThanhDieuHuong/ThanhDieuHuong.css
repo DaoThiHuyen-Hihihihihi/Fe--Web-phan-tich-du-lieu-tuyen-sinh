@@ -1,9 +1,19 @@
 .thanh-dieu-huong {
+  position: fixed; /* cố định khi cuộn */
+  top: 0; /* dính sát trên cùng */
+  left: 0;
+  width: 100%; /* phủ toàn bộ chiều ngang */
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #f7f7f7;
   padding: 18px 40px 10px 40px;
+  z-index: 1000; /* đảm bảo luôn nằm trên nội dung */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* thêm bóng để phân tách */
+}
+
+body {
+  padding-top: 70px; /* hoặc chính xác bằng chiều cao navbar */
 }
 
 .thanh-dieu-huong .logo {
